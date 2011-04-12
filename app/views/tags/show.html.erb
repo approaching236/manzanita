@@ -1,0 +1,15 @@
+<p>
+  <h1><%=h @tag.name %></h1>
+</p>
+<br/>
+<%- if @subjects.empty? %>
+  No subjects
+<%- else %>
+  <ul>
+  <%- @subjects.each do |subject| %>
+    <li><%= link_to subject.name, subject_path(subject) %></li>
+  <%- end %>
+  </ul>
+<%- end %>
+
+

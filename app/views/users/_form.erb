@@ -1,0 +1,18 @@
+<br />
+<%= form.label :login %>*<br />
+<%= form.text_field :login %><br />
+<br />
+<%= form.label :email, form.object.new_record? ? nil : "Email" %><br/>
+<%= form.text_field :email %><br/>
+<br/>
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %>*<br />
+<%= form.password_field :password, :value => '' %><br />
+<br />
+<%= form.label :password_confirmation %>*<br />
+<%= form.password_field :password_confirmation %><br />
+
+<%- if current_user_is_admin? -%>
+  <%= form.label :access_level %><br />
+  <%= form.text_field :access_level %><br />
+<%- end -%>
+

@@ -1,0 +1,30 @@
+<%- content_for :title, 'Subjects' -%>
+<p>If you can't find what you are looking for, help out and create the page you were looking for. Just click on the plus!</p>
+<h2>
+  Subjects
+  <%- if current_user %>
+    <%= link_to '+', new_subject_path %>
+  <%- end %>
+</h2>
+<br/>
+<%- if !@subjects.empty? %>
+  <%= @subjects.each do |subject| %>
+    <div class="subject">
+      <h3>
+        <%= link_to h(subject.name.titleize), subject %>
+        <%- if current_user_is_admin? -%>
+          <%= link_to 'Edit', edit_subject_path(subject) %>
+          <%= link_to 'Destroy', subject_path(subject, :method => :delete) %>
+        <%- end -%>
+      </h3>
+      <p><%= truncate(subject.blurb, :length => 85) %></p>
+    </div>
+  <% end %>
+<%- else %>
+  <%- if current_user %>
+    <p>Your search didn't yield any responses, you can help out by making a new <%= params[:search] %> subject page.</p>
+  <%- else %>
+    <p>Your search didn't yield any results, if you want to help out, you can start by registering. Once you are logged in, you can make a <%= params[:search] %> page.</p>
+  <%- end %>
+<%- end %>
+

@@ -1,0 +1,58 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>The bounciest of castles - <%= yield(:title) %></title>
+
+    <%= stylesheet_link_tag 'main' %>
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="header">
+	      <div id="login_info">
+	        <%- unless current_user %>
+	        <%= link_to 'Login', login_path %> | <%= link_to 'Register', new_user_path %>
+	        <%- else %>
+	          <%= link_to current_user.login, edit_user_path(current_user) %> | <%= link_to 'logout', logout_path %>
+	        <%- end %>
+	      </div>
+	      <h1><%= link_to '¡Bouncy Castle!', root_path %></h1>
+	      <%= render :partial => 'shared/search' %>
+      </div>
+      <div id="content">
+	<%- flash.each do |key, msg| -%>
+	  <div class="<%= key %>"><%= msg %></div>
+	<%- end -%>
+
+	<%= yield %>
+
+	<div id="footer">
+          <!--
+	  <p>
+	    Created by Josh Lubaway and Vincent Grato<br />
+	    If you have any comments or suggestions, visit our
+      <%= link_to 'contact page', content_path('contact') %>
+	  </p>
+          -->
+	</div>
+      </div>
+
+      <div id="secondary">
+	<ul>
+	  <li><%= link_to 'Home', root_path %></li>
+	  <li><%= link_to 'Subjects', subjects_path %></li>
+	  <li><%= link_to 'Tags', tags_path %></li>
+	</ul>
+
+	<%= yield(:secondary) %>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,36 @@
+<div class="breadcrumb">
+  <%= link_to @subject.name, subject_path(@subject) %>
+  >
+  <%= @resource.name %>
+</div>
+<div class="resource">
+  <div class="votes">
+    <div class="net_votes"><%= @resource.netvote_count %></div>
+    <div class="up_votes">
+      <%= link_to @resource.upvote_count, upvote_subject_resource_path(@subject, @resource) %>
+    </div>
+    <div class="down_votes">
+      <%= link_to @resource.downvote_count, downvote_subject_resource_path(@subject, @resource) %>
+    </div>
+  </div>
+  <div class="info no_aux" style="width: 700px">
+    <h2><%= link_to @resource.name, @resource.uri %></h2>
+    <br />
+    <div class="percent_whole">
+      <div class="percent_part" style="width: <%= @resource.percent_upvote %>%"></div>
+    </div>
+    <%= link_to @resource.user.login, user_path(@resource.user) %>
+    <p><%= @resource.description %></p>
+    <%- if current_user %>
+    <div clas="actions">
+      <%= link_to 'edit', edit_subject_resource_path(@subject, @resource) %>
+      |
+      <%= link_to 'destroy', subject_resource_path(@subject, @resource), :method => :delete %>
+    </div>
+    <%- end %>
+  </div>
+</div>
+<div class="clear"></div>
+
+<p>insert comments here</p>
+

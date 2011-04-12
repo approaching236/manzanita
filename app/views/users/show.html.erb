@@ -1,0 +1,13 @@
+<p>
+  <h2><%=h @user.login %></h2>
+  <br/>
+</p>
+<%- @resources.each do |resource| %> 
+  <p>
+  <%= resource.created_at.strftime("%b %d") %>
+  <%= link_to resource.subject.name, subject_path(resource.subject) %> > 
+  <%= link_to resource.name, subject_resource_path(resource.subject, resource) %>
+  (<%= resource.netvote_count %>)
+  </p>
+<%- end %>
+

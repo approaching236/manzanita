@@ -1,0 +1,8 @@
+<h1>Listing prerequisites</h1>
+
+<%- @prerequisites.each do |prerequisite| -%>
+  <div>
+    <%= prerequisite.prereq.name %>
+    <%= link_to 'destroy', subject_prerequisite_path(@subject, prerequisite), :method => :delete %>
+  </div>
+<%- end -%>

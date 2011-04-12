@@ -1,0 +1,27 @@
+<%= form_for(@subject) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="form_chunk">
+    <div class="label"><%= f.label :name %></div>
+    <div class="input"><%= f.text_field :name %></div>
+  </div>
+
+  <div class="form_chunk">
+    <div class="label"><%= f.label :tag_list, 'Tags' %></div>
+    <div class="input"><%= f.text_field :tag_list %></div>
+  </div>
+  
+  <div class="form_chunk">
+    <div class="label"><%= f.label :description %></div>
+    <div class="input"><%= f.text_area :description, :rows => 7 %></div>
+  </div>
+
+  <div class="form_chunk">
+    <div class="label"></div>
+    <div class="input">
+      <%= link_to 'Cancel', subjects_path %>
+      <%= f.submit submit_label %>
+    </div>
+  </div>
+<% end %>
+

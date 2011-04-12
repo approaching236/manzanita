@@ -1,0 +1,8 @@
+<div id="search">
+  <%= form_tag subjects_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search], :size => 15 %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+</div>
