@@ -8,7 +8,7 @@
 </h2>
 <br/>
 <%- if !@subjects.empty? %>
-  <%= @subjects.each do |subject| %>
+  <%- @subjects.each do |subject| %>
     <div class="subject">
       <h3>
         <%= link_to h(subject.name.titleize), subject %>

@@ -1,8 +1,8 @@
 <h1>Tags</h1>
 <p>I have fairly recently added in tags, and haven't quite figured out a good way for users to edit them. I want to make sure that all the data stays nice and clean, so until there is a good way for users to do that, I just have the admins doing it. Still feel free to make subjects, they can always be tagged later.</p>
-<%= @tags.each do |tag| %>
-  <p><%= link_to tag.name, tag %></p>
+<%- @tags.each do |tag| %>
+  <p><%= link_to tag.name, tag %>
   <%- if current_user_is_admin? %>
-    <%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %>
-  <%- end  %> 
+     -- <%= link_to 'Destroy', tag, :confirm => 'Are you sure?', :method => :delete %>
+  <%- end  %> </p>
 <% end %>

@@ -2446,4 +2446,205 @@ Started GET "/subjects/50" for 127.0.0.1 at Tue Apr 12 11:45:04 -0700 2011
   [1m[36mSubject Load (5.3ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
   [1m[35mPrerequisite Load (0.5ms)[0m  SELECT "prerequisites".* FROM "prerequisites" WHERE ("prerequisites".subject_id = 50)
   [1m[36mResource Load (1.5ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE ("resources".subject_id = 50)[0m
-  [1m[35mTag Load (0.9ms)[0m  SELECT "tags".* FROM "tags" INNE
+  [1m[35mTag Load (0.9ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".subject_id = 50))
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."up" = 't' AND ("votes".resource_id = 99)[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."up" = 'f' AND ("votes".resource_id = 99)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (5.4ms)
+Rendered subjects/show.html.erb within layouts/application (495.5ms)
+Completed 200 OK in 780ms (Views: 507.3ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/tags/31" for 127.0.0.1 at Tue Apr 12 11:45:23 -0700 2011
+  Processing by TagsController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" WHERE "tags"."id" = 31 LIMIT 1
+  [1m[36mSubject Load (1.5ms)[0m  [1mSELECT "subjects".* FROM "subjects" INNER JOIN "taggings" ON "subjects".id = "taggings".subject_id WHERE (("taggings".tag_id = 31))[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (4.3ms)
+Rendered tags/show.html.erb within layouts/application (372.2ms)
+Completed 200 OK in 725ms (Views: 389.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/subjects/46" for 127.0.0.1 at Tue Apr 12 11:45:27 -0700 2011
+  Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[35mSubject Load (1.8ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."id" = 46 LIMIT 1
+  [1m[36mSubject Load (8.4ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
+  [1m[35mPrerequisite Load (0.5ms)[0m  SELECT "prerequisites".* FROM "prerequisites" WHERE ("prerequisites".subject_id = 46)
+  [1m[36mResource Load (1.0ms)[0m  [1mSELECT "resources".* FROM "resources" WHERE ("resources".subject_id = 46)[0m
+  [1m[35mTag Load (3.0ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".subject_id = 46))
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."up" = 't' AND ("votes".resource_id = 93)[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."up" = 'f' AND ("votes".resource_id = 93)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (6.4ms)
+Rendered subjects/show.html.erb within layouts/application (453.5ms)
+Completed 200 OK in 908ms (Views: 467.5ms | ActiveRecord: 16.8ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:14:46 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (10.6ms)[0m  SELECT "subjects".* FROM "subjects"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (6.2ms)
+Rendered subjects/index.html.erb within layouts/application (812.7ms)
+Completed 200 OK in 991ms (Views: 830.8ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:15:08 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (11.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (4.7ms)
+Rendered subjects/index.html.erb within layouts/application (671.3ms)
+Completed 200 OK in 984ms (Views: 686.6ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:15:20 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (8.9ms)[0m  SELECT "subjects".* FROM "subjects"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (3.7ms)
+Rendered subjects/index.html.erb within layouts/application (705.2ms)
+Completed 200 OK in 841ms (Views: 720.2ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:15:39 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (10.1ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (3.7ms)
+Rendered subjects/index.html.erb within layouts/application (655.3ms)
+Completed 200 OK in 799ms (Views: 668.1ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:15:58 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[35mSubject Load (8.3ms)[0m  SELECT "subjects".* FROM "subjects"
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (5.6ms)
+Rendered subjects/index.html.erb within layouts/application (914.9ms)
+Completed 200 OK in 1045ms (Views: 929.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/subjects" for 127.0.0.1 at Tue Apr 12 12:16:49 -0700 2011
+  Processing by SubjectsController#index as HTML
+  [1m[36mSubject Load (9.2ms)[0m  [1mSELECT "subjects".* FROM "subjects"[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (7.6ms)
+Rendered subjects/index.html.erb within layouts/application (801.1ms)
+Completed 200 OK in 961ms (Views: 816.4ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Apr 12 12:16:57 -0700 2011
+  Processing by IndexController#index as HTML
+  [1m[35mSubject Load (4.1ms)[0m  SELECT "subjects".* FROM "subjects" ORDER BY created_at desc LIMIT 5
+  [1m[36mSubject Load (3.0ms)[0m  [1mSELECT "subjects".* FROM "subjects" ORDER BY random() LIMIT 5[0m
+Rendered index/_intro.html.erb (1.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (6.1ms)
+Rendered index/index.html.erb within layouts/application (453.8ms)
+Completed 200 OK in 544ms (Views: 469.5ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:17:00 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[35mTag Load (6.1ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (4.8ms)
+Rendered tags/index.html.erb within layouts/application (576.2ms)
+Completed 200 OK in 638ms (Views: 588.1ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:17:22 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[36mTag Load (4.0ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (5.1ms)
+Rendered tags/index.html.erb within layouts/application (508.0ms)
+Completed 200 OK in 572ms (Views: 523.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:17:33 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[35mTag Load (4.1ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (5.1ms)
+Rendered tags/index.html.erb within layouts/application (550.0ms)
+Completed 200 OK in 608ms (Views: 562.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:17:56 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[36mTag Load (6.1ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (3.8ms)
+Rendered tags/index.html.erb within layouts/application (535.0ms)
+Completed 200 OK in 594ms (Views: 546.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:18:08 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[35mTag Load (3.9ms)[0m  SELECT "tags".* FROM "tags"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered shared/_search.erb (4.0ms)
+Rendered tags/index.html.erb within layouts/application (526.8ms)
+Completed 200 OK in 589ms (Views: 540.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:18:24 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[36mTag Load (6.1ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (4.4ms)
+Rendered tags/index.html.erb within layouts/application (516.0ms)
+Completed 200 OK in 592ms (Views: 533.2ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Apr 12 12:18:48 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (10.6ms)[0m  SELECT "users".* FROM "users"
+Rendered shared/_search.erb (4.8ms)
+Rendered users/index.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 449ms (Views: 95.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/tags" for 127.0.0.1 at Tue Apr 12 12:18:59 -0700 2011
+  Processing by TagsController#index as HTML
+  [1m[36mTag Load (5.1ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (4.2ms)
+Rendered tags/index.html.erb within layouts/application (621.8ms)
+Completed 200 OK in 699ms (Views: 649.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Apr 12 12:19:07 -0700 2011
+  Processing by IndexController#index as HTML
+  [1m[35mSubject Load (4.5ms)[0m  SELECT "subjects".* FROM "subjects" ORDER BY created_at desc LIMIT 5
+  [1m[36mSubject Load (3.4ms)[0m  [1mSELECT "subjects".* FROM "subjects" ORDER BY random() LIMIT 5[0m
+Rendered index/_intro.html.erb (1.0ms)
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered shared/_search.erb (5.5ms)
+Rendered index/index.html.erb within
