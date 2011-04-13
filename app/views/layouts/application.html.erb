@@ -4,7 +4,7 @@
   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>The bounciest of castles - <%= yield(:title) %></title>
+    <title>Learning's pretty crazy - <%= yield(:title) %></title>
 
     <%= stylesheet_link_tag 'main' %>
   </head>
@@ -19,9 +19,9 @@
 	        <%- else %>
 	          <%= link_to current_user.login, edit_user_path(current_user) %> | <%= link_to 'logout', logout_path %>
 	        <%- end %>
+                <%= render :partial => 'shared/search' %>
 	      </div>
-	      <h1><%= link_to '¡Bouncy Castle!', root_path %></h1>
-	      <%= render :partial => 'shared/search' %>
+	      <h1><%= link_to 'Via Manzanita', root_path %></h1>
       </div>
       <div id="content">
 	<%- flash.each do |key, msg| -%>
@@ -31,13 +31,11 @@
 	<%= yield %>
 
 	<div id="footer">
-          <!--
 	  <p>
-	    Created by Josh Lubaway and Vincent Grato<br />
+	    Created by Vincent Grato<br />
 	    If you have any comments or suggestions, visit our
-      <%= link_to 'contact page', content_path('contact') %>
+            <%= link_to 'contact page', '/contact' %>
 	  </p>
-          -->
 	</div>
       </div>
 

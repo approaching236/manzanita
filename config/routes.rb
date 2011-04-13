@@ -85,7 +85,8 @@ Manzanita::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'index#index'
-  match 'content', :to => 'content#show', :as => 'content'
+  match 'about', :controller => 'content', :action => 'about'
+  match 'contact', :controller => 'content', :action => 'contact'
 
   # See how all your routes lay out with "rake routes"
 

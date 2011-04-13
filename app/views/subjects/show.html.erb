@@ -1,26 +1,47 @@
 <%- content_for :title, h(@subject.name.capitalize) -%>
 
-<h2><%=h @subject.name.titleize %></h2>
+<h2><%=h @subject.name.titleize %>
 <%- if current_user_is_admin? %>
-  <%= link_to 'edit this subject', edit_subject_path(@subject) %>
-<%- end %>
+  <span style="font-size: 12px;"><%= link_to 'Edit Subject', edit_subject_path(@subject) %></span>
+<%- end %></h2>
+
 <p><%= @subject.description %></p>
 <div id="tags">
   <%- if !@tags.empty? %>
     Tags:
     <%- @tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
+      <%= link_to tag.name.sub(' ', '_'), tag_path(tag) %>
     <%- end %>
   <%- else %>
     
   <%- end %>
 </div>
 
-<div class="feature_spot">
+<div class="">
+  <h3>Prerequisites -- <%= link_to 'submit', new_subject_prerequisite_path(@subject), :title => 'Suggest Prerequisite' %></h3>
+  <%- if !@prerequisites.empty? -%>
+    <ul>
+      <%- @prerequisites.each do |prerequisite| -%>
+        <li>
+          <h3><%= link_to prerequisite.prereq.name.titleize, subject_path(prerequisite.prereq) %></h3>
+          <p>
+            <%= truncate(prerequisite.prereq.description, :length => 100) %> 
+            <%- if current_user_is_admin? %>
+              <%= link_to "destroy", subject_prerequisite_path(@subject, prerequisite), :method => 'delete'%>
+            <%- end %>
+          </p>
+        </li>
+      <%- end -%>
+    </ul>
+  <%- else -%>
+    <p>No prerequisites yet for this subject. Create one by clicking \'submit\' above.</p>
+  <%- end %>
+</div>
+<div class="">
   
-  <h3>Resources <%= link_to '+', new_subject_resource_path(@subject), :title => 'Suggest Resource' %></h3>
+  <h3>Resources -- <%= link_to 'submit', new_subject_resource_path(@subject), :title => 'Suggest Resource' %></h3>
   <%- if @resources.empty? %>
-    <p>No resources yet for this subject. Create one with that + right above.</p>
+    <p>No resources yet for this subject. Create one by clicking on the \'submit\' link above.</p>
   <%- else -%>
     <%- @resources.each do |resource| -%>
       <div class="resource">
@@ -60,26 +81,6 @@
   <%- end -%>
 </div>
 
-<div class="feature_spot feature_spot_right">
-  <h3>Prerequisites <%= link_to '+', new_subject_prerequisite_path(@subject), :title => 'Suggest Prerequisite' %></h3>
-  <%- if !@prerequisites.empty? -%>
-    <ul>
-      <%- @prerequisites.each do |prerequisite| -%>
-        <li>
-          <h3><%= link_to prerequisite.prereq.name.titleize, subject_path(prerequisite.prereq) %></h3>
-          <p>
-            <%= truncate(prerequisite.prereq.description, :length => 100) %> 
-            <%- if current_user_is_admin? %>
-              <%= link_to "destroy", subject_prerequisite_path(@subject, prerequisite), :method => 'delete'%>
-            <%- end %>
-          </p>
-        </li>
-      <%- end -%>
-    </ul>
-  <%- else -%>
-    <p>No prerequisites yet for this subject. Create one with that + right above.</p>
-  <%- end %>
-</div>
 
 <!--<div id="aux">
   <%- if !@prerequisites.empty? -%>

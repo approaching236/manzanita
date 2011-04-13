@@ -4,7 +4,7 @@ body {
 }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
   line-height: 18px;
 }
 
@@ -34,6 +34,11 @@ h4 {
 
 p {
   margin: 0 0 15px 0;
+  line-height: 1.8;
+}
+
+.indented {
+  text-indent: 50px;
 }
 
 pre {
@@ -246,5 +251,10 @@ div.form_chunk {
 }
 
 #search {
-  margin-top: 30px
+  margin-top: 10px;
 }
+
+.hidden {
+  display: none;
+}
+
