@@ -16,9 +16,6 @@
   <div class="info no_aux" style="width: 700px">
     <h2><%= link_to @resource.name, @resource.uri %></h2>
     <br />
-    <div class="percent_whole">
-      <div class="percent_part" style="width: <%= @resource.percent_upvote %>%"></div>
-    </div>
     <%= link_to @resource.user.login, user_path(@resource.user) %>
     <p><%= @resource.description %></p>
     <%- if current_user %>
@@ -32,5 +29,4 @@
 </div>
 <div class="clear"></div>
 
-<p>insert comments here</p>
 

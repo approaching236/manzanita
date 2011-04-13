@@ -26,6 +26,7 @@ h2 {
 h3 {
   font-size: 1.4em;
   margin: 0 0 5px 0;
+  line-height: 1.6;
 }
 
 h4 {
@@ -39,6 +40,10 @@ p {
 
 .indented {
   text-indent: 50px;
+}
+
+.subsection li {
+  margin-left: 50px;
 }
 
 pre {
@@ -136,7 +141,7 @@ div.subject p {
   margin: 0;
 }
 div.resource {
-  margin-bottom: 15px;
+  margin: 0 0 15px 50px;
 }
 div.resource p {
   margin: 0;
@@ -167,19 +172,16 @@ div.resource .votes .down_votes a {
   float: left;
   background-position: 0px 1px;
 }
-div.resource .info {
-  float: right;
-  width: 350px;
+
+#resources, .prereqs {
+  margin-top: 20px;
+  white-space: nowrap;
+  // width: 500px;
 }
-
-
 
 div.form_chunk {
   margin: 0 0 15px 0;
 }
-
-
-
 
 .fieldWithErrors {
   padding: 2px;
@@ -214,7 +216,6 @@ div.form_chunk {
 
 #errorExplanation ul li {
   font-size: 12px;
-  list-style: square;
 }
 
 .notice {
@@ -241,8 +242,6 @@ div.form_chunk {
 }
 
 .feature_spot {
-  width: 50%;
-  float: left;
   margin-bottom: 60px;
 }
 
@@ -256,5 +255,19 @@ div.form_chunk {
 
 .hidden {
   display: none;
+}
+
+#tags {
+  margin-bottom: 20px;
+}
+
+.regular_text {
+  font-size: 16px;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.even {
+  background-color: #D0DFE8;
 }
 

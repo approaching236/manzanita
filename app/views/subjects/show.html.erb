@@ -17,15 +17,16 @@
   <%- end %>
 </div>
 
-<div class="">
-  <h3>Prerequisites -- <%= link_to 'submit', new_subject_prerequisite_path(@subject), :title => 'Suggest Prerequisite' %></h3>
+  <h3>Prerequisites -- <%= link_to 'Submit', new_subject_prerequisite_path(@subject), :title => 'Suggest Prerequisite', :class => 'regular_text' %></h3>
+<%= link_to_function 'show', 'toggle_prereqs()', :id => 'prereq_toggle_button' %>
+
+<div id="prereqs" class="subsection">
   <%- if !@prerequisites.empty? -%>
     <ul>
       <%- @prerequisites.each do |prerequisite| -%>
         <li>
           <h3><%= link_to prerequisite.prereq.name.titleize, subject_path(prerequisite.prereq) %></h3>
           <p>
-            <%= truncate(prerequisite.prereq.description, :length => 100) %> 
             <%- if current_user_is_admin? %>
               <%= link_to "destroy", subject_prerequisite_path(@subject, prerequisite), :method => 'delete'%>
             <%- end %>
@@ -37,9 +38,10 @@
     <p>No prerequisites yet for this subject. Create one by clicking \'submit\' above.</p>
   <%- end %>
 </div>
-<div class="">
-  
-  <h3>Resources -- <%= link_to 'submit', new_subject_resource_path(@subject), :title => 'Suggest Resource' %></h3>
+
+  <h3>Resources -- <%= link_to 'Submit', new_subject_resource_path(@subject), :title => 'Suggest Resource', :class => 'regular_text' %></h3>
+<%= link_to_function 'hide', 'toggle_resources()', :id => 'resources_toggle_button' %>
+<div id="resources" class="subsection">
   <%- if @resources.empty? %>
     <p>No resources yet for this subject. Create one by clicking on the \'submit\' link above.</p>
   <%- else -%>
@@ -56,23 +58,25 @@
         </div>
 
         <div class="info">
-          <h3><%= link_to resource.name.titleize, resource.uri %></h3>
-          <div class="percent_whole">
+          <h3><%= link_to resource.name.titleize, resource.uri %>
+          <!-- <div class="percent_whole">
             <div class="percent_part" style="width: <%=resource.percent_upvote %>%"></div>
-          </div>
-          <p><%= truncate(resource.description, :length => 100) %></p>
-          <div clas="actions">
-            <%= link_to '+ more', subject_resource_path(@subject, resource) %>
-            --
-            <%= link_to resource.user.login, user_path(resource.user) %>
-            <%= resource.created_at.strftime('%m/%d/%y') %>
-            <%- if current_user_is_admin? %>
-            |
-            <%= link_to 'edit', edit_subject_resource_path(@subject, resource) %>
-            |
-            <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
-            <%- end %>
-          </div>
+          </div> -->
+            <span style="font-size: 16px;">
+              <div class="actions">
+                <%= link_to '+ more', subject_resource_path(@subject, resource) %>
+                --
+                <%= link_to resource.user.login, user_path(resource.user) %>
+                <%= resource.created_at.strftime('%m/%d/%y') %>
+                <%- if current_user_is_admin? %>
+                |
+                <%= link_to 'edit', edit_subject_resource_path(@subject, resource) %>
+                |
+                <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
+                <%- end %>
+              </div>
+            </span>
+          </h3>
         </div>
 
         <div class="clear"></div>
