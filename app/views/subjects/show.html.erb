@@ -35,7 +35,7 @@
       <%- end -%>
     </ul>
   <%- else -%>
-    <p>No prerequisites yet for this subject. Create one by clicking \'submit\' above.</p>
+    <p>No prerequisites yet for this subject. Create one by clicking 'submit' above.</p>
   <%- end %>
 </div>
 
@@ -43,7 +43,7 @@
 <%= link_to_function 'hide', 'toggle_resources()', :id => 'resources_toggle_button' %>
 <div id="resources" class="subsection">
   <%- if @resources.empty? %>
-    <p>No resources yet for this subject. Create one by clicking on the \'submit\' link above.</p>
+    <p>No resources yet for this subject. Create one by clicking on the 'submit' link above.</p>
   <%- else -%>
     <%- @resources.each do |resource| -%>
       <div class="resource">
