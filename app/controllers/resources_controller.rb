@@ -44,6 +44,7 @@ class ResourcesController < ApplicationController
   # POST /resources.xml
   def create
     @resource = @subject.resources.build(params[:resource].merge(:user => current_user))
+    @resource.votes.build(:up => true, :user => current_user).save
 
     respond_to do |format|
       if @resource.save

@@ -3,7 +3,8 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.xml
   def index
-    @tags = Tag.all
+    @tags = Tag.all.sort { |a, b| a.name.downcase <=> b.name.downcase }
+
 
     respond_to do |format|
       format.html # index.html.erb
