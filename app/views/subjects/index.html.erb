@@ -10,14 +10,14 @@
 <%- if !@subjects.empty? %>
   <%- @subjects.each do |subject| %>
     <div class="subject">
-      <h3>
+      <p>
         <%= link_to h(subject.name.titleize), subject %>
         <%- if current_user_is_admin? -%>
           <%= link_to 'Edit', edit_subject_path(subject) %>
           <%= link_to 'Destroy', subject_path(subject, :method => :delete) %>
         <%- end -%>
-      </h3>
-      <p><%= truncate(subject.blurb, :length => 85) %></p>
+      <p>
+      <p class="indented"><%= truncate(subject.blurb, :length => 85) %></p>
     </div>
   <% end %>
 <%- else %>

@@ -2,7 +2,7 @@
 
 <h2><%=h @subject.name.titleize %>
 <%- if current_user_is_admin? %>
-  <span style="font-size: 12px;"><%= link_to 'Edit Subject', edit_subject_path(@subject) %></span>
+  <span class="regular_text"><%= link_to 'Edit Subject', edit_subject_path(@subject) %></span>
 <%- end %></h2>
 
 <p><%= @subject.description %></p>
