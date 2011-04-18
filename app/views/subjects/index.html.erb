@@ -3,7 +3,7 @@
 <h2>
   Subjects
   <%- if current_user %>
-    <%= link_to '+', new_subject_path %>
+    <%= link_to 'Submit new', new_subject_path, :class => 'regular_text' %>
   <%- end %>
 </h2>
 <br/>
@@ -14,7 +14,7 @@
         <%= link_to h(subject.name.titleize), subject %>
         <%- if current_user_is_admin? -%>
           <%= link_to 'Edit', edit_subject_path(subject) %>
-          <%= link_to 'Destroy', subject_path(subject, :method => :delete) %>
+          <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %>
         <%- end -%>
       <p>
       <p class="indented"><%= truncate(subject.blurb, :length => 85) %></p>
