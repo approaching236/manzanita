@@ -44,10 +44,14 @@ class ResourcesController < ApplicationController
   # POST /resources.xml
   def create
     @resource = @subject.resources.build(params[:resource].merge(:user => current_user))
-    @resource.votes.build(:up => true, :user => current_user).save
 
     respond_to do |format|
       if @resource.save
+        begin @resource.votes.build(:up => true, :user => current_user).save
+        rescue
+          logger.info 'vote didn\'t work as planned'
+        end
+
         flash[:notice] = 'Resource was successfully created.'
         format.html { redirect_to(@subject) }
         format.xml  { render :xml => @resource, :status => :created, :location => @resource }
