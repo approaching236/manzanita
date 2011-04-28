@@ -8,9 +8,13 @@ class SubjectsController < ApplicationController
   def index
     @subjects = Subject.search(params[:search])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @subjects }
+    if @subjects.length == 1
+      redirect_to :action => "show", :id => @subjects.first.id 
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @subjects }
+      end
     end
   end
 
