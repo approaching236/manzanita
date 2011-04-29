@@ -5,7 +5,7 @@
 </div>
 
 <div class="feature_spot">
-  <h1>Some Recent Subjects</h1>
+  <h2>Some Recent Subjects</h2>
 
   <%- @recent.each do |subject| -%>
     <h3 class="nowrap"><%= link_to subject.name.titleize, subject %>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="feature_spot">
-  <h1>Some Recent Submissions</h1>
+  <h2>Some Recent Submissions</h2>
 
   <%- @submissions.each do |resource| -%>
     <h3 class="nowrap"><%= link_to resource.subject.name, resource.subject %> > <%= link_to resource.name.titleize, subject_resource_path(resource.subject, resource) %>
@@ -23,7 +23,7 @@
 </div>
 
 <div class="feature_spot">
-  <h1>Some Random Subjects</h1>
+  <h2>Some Random Subjects</h2>
 
   <%- @random.each do |subject| -%>
     <h3 class="nowrap"><%= link_to subject.name.titleize, subject %>
