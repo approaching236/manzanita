@@ -16,9 +16,9 @@
 <div class="feature_spot">
   <h1>Some Recent Submissions</h1>
 
-  <%- @submissions.each do |sub| -%>
-    <h3 class="nowrap"><%= link_to sub.subject.name, sub.subject %> > <%= link_to sub.name.titleize, sub %>
-          <span class="regular_text" ><%= truncate(sub.description, :length => 150) %></span></h3>
+  <%- @submissions.each do |resource| -%>
+    <h3 class="nowrap"><%= link_to resource.subject.name, resource.subject %> > <%= link_to resource.name.titleize, subject_resource_path(resource.subject, resource) %>
+          <span class="regular_text" ><%= truncate(resource.description, :length => 150) %></span></h3>
   <%- end -%>
 </div>
 
