@@ -27,6 +27,9 @@ h3 {
   font-size: 1.4em;
   margin: 0 0 5px 0;
   line-height: 1.6;
+}
+
+.nowrap {
   white-space: nowrap;
   overflow-x: hidden;
 }

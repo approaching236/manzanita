@@ -17,7 +17,7 @@
           <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %>
         <%- end -%>
       <p>
-      <p class="indented"><%= truncate(subject.blurb, :length => 85) %></p>
+      <p class="indented nowrap"><%= truncate(subject.blurb, :length => 150) %></p>
     </div>
   <% end %>
 <%- else %>
