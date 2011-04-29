@@ -5,7 +5,7 @@ document.observe("dom:loaded", function() {
   });
 });
 
-var show_prereq = false;
+var show_prereq = true;
 function toggle_prereqs() {
   $('prereqs').toggle();
   if (show_prereq) {
