@@ -31,3 +31,7 @@ gem 'dynamic_form'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :development, :test do
+  gem 'redgreen'
+end
