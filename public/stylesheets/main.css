@@ -20,7 +20,7 @@ h1 {
 
 h2 {
   font-size: 2.2em;
-  margin: 0 0 5px 0;
+  margin: 0 0 15px 0;
 }
 
 h3 {
@@ -247,7 +247,7 @@ div.form_chunk {
 }
 
 .feature_spot {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 }
 
 .breadcrumb {

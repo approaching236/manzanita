@@ -2,9 +2,9 @@
 <br/>
 
 <%- @resources.each do |resource| %>
-    <h3 class="nowrap">
+    <p class="nowrap">
     <%= link_to resource.subject.name, resource.subject %> > <%= link_to resource.name.titleize, subject_resource_path(resource.subject, resource) %>
-    <span class="regular_text" ><%= truncate(resource.description, :length => 150) %></span></h3>
+    <span class="regular_text" ><%= truncate(resource.description, :length => 150) %></span></p>
 <% end %>
 </table>
 
