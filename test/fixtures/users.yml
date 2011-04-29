@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+foo: 
+  id: 1
+  login: foo
+  email: foo@example.com
+  access_level: 1000
+  password_salt: aQ7W4cpw_XBaFuO9l-JT
+  crypted_password: 2e1454bf6dca189b2d145f1407a09152328d48aae88dd44c273bfbd10356ca6477fab707035e84c9d9c5de62e649a17a856cb2b4d935ea9ba8654e4d341d9593
+  perishable_token: 4X9TLQKx4jwUpS_s49Mz
+  persistence_token: 32d998eeaa0c0b0467c2ea7667169bd9e928a7523021d8e27b81278819f15d7fc2fb928ff0f4dbef58e046bb9ad91085a8f7ad5eea77cffba2eeaec8fbab5d37
