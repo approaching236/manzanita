@@ -9,7 +9,7 @@
 
   <%- @recent.each do |subject| -%>
     <h3><%= link_to subject.name.titleize, subject %>
-          <span class="regular_text" ><%= truncate(subject.description, :length => 75) %></span></h3>
+          <span class="regular_text" ><%= truncate(subject.description, :length => 150) %></span></h3>
   <%- end -%>
 </div>
 
@@ -18,6 +18,6 @@
 
   <%- @random.each do |subject| -%>
     <h3><%= link_to subject.name.titleize, subject %>
-          <span class="regular_text" ><%= truncate(subject.description, :length => 75) %></span></h3>
+          <span class="regular_text" ><%= truncate(subject.description, :length => 150) %></span></h3>
   <%- end -%>
 </div>
