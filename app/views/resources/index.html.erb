@@ -1,19 +1,12 @@
-<h1>Listing resources</h1>
+<h2>50 Most Recent Resources:</h2>
+<br/>
 
-<table>
-  <tr>
-  </tr>
-
-<%= @resources.each do |resource| %>
-  <tr>
-    <td><%= resource.name %></td>
-    <td><%= link_to 'Show', resource %></td>
-    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-    <td><%= link_to 'Destroy', resource, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%- @resources.each do |resource| %>
+    <h3 class="nowrap">
+    <%= link_to resource.subject.name, resource.subject %> > <%= link_to resource.name.titleize, subject_resource_path(resource.subject, resource) %>
+    <span class="regular_text" ><%= truncate(resource.description, :length => 150) %></span></h3>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New resource', new_resource_path %>

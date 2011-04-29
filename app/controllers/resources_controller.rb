@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
 
-  before_filter :find_subject
+  before_filter :find_subject, :except => [:index]
   before_filter :find_resource, :except => [:index, :new, :create]
   before_filter :require_user, :except => [:index, :show]
   before_filter :require_admin, :only => [:edit, :update, :destroy]
@@ -8,7 +8,7 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.xml
   def index
-    @resources = Resource.all
+    @resources = Resource.all(:limit => 50, :order => 'created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
