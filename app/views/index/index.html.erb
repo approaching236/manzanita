@@ -5,7 +5,7 @@
 </div>
 
 <div class="feature_spot">
-  <h1>Some Recent Stuff</h1>
+  <h1>Some Recent Subjects</h1>
 
   <%- @recent.each do |subject| -%>
     <h3 class="nowrap"><%= link_to subject.name.titleize, subject %>
@@ -14,7 +14,16 @@
 </div>
 
 <div class="feature_spot">
-  <h1>Some Random Stuff</h1>
+  <h1>Some Recent Submissions</h1>
+
+  <%- @submissions.each do |sub| -%>
+    <h3 class="nowrap"><%= link_to sub.subject.name, sub.subject %> > <%= link_to sub.name.titleize, sub %>
+          <span class="regular_text" ><%= truncate(sub.description, :length => 150) %></span></h3>
+  <%- end -%>
+</div>
+
+<div class="feature_spot">
+  <h1>Some Random Subjects</h1>
 
   <%- @random.each do |subject| -%>
     <h3 class="nowrap"><%= link_to subject.name.titleize, subject %>
