@@ -8,6 +8,6 @@ class Prerequisite < ActiveRecord::Base
 
   private
     def non_recursive_prereqs
-      errors.add_to_base('Subject can not be a prerequisite of itself') if subject_id == prereq_id
+      errors.add(:base, 'Subject can not be a prerequisite of itself') if subject_id == prereq_id
     end
 end

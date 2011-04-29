@@ -3,7 +3,7 @@ require 'test_helper'
 class PrerequisitesControllerTest < ActionController::TestCase
 
   def setup
-    login_user
+    user_login
     @subject = Subject.create(:name => 'Test subject')
   end
 

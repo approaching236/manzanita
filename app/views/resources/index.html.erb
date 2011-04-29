@@ -1,10 +1,12 @@
 <h2>50 Most Recent Resources:</h2>
 <br/>
 
-<%- @resources.each do |resource| %>
+<%- if !@resources.empty? %>
+  <%- @resources.each do |resource| %>
     <p class="nowrap">
     <%= link_to resource.subject.name, resource.subject %> > <%= link_to resource.name.titleize, subject_resource_path(resource.subject, resource) %>
     <span class="regular_text" ><%= truncate(resource.description, :length => 150) %></span></p>
+  <% end %>
 <% end %>
 </table>
 
